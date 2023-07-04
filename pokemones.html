@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Pokedex</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="shortcut icon" href="https://assets.pokemon.com/static2/_ui/img/favicon.ico" type="image/x-icon">
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+</head>
+
+<body>
+  <header id="header"></header>
+
+  <main style="background-image: url(https://assets.pokemon.com//assets/cms2-es-es/img/misc/virtual-backgrounds/masters/forest.jpg); background-size: cover; background-position: center;">
+    <div id="app" class="container">
+      <h1 style="padding: 0.5rem 1rem; background-color: rgba(193, 193, 193, 0.8); display: flex; justify-content: start; width: max-content; border-radius: .3rem;">Pokédex</h1>
+
+      <section v-if="error">
+        <p>Lo sentimos, los pokemones están descansando en este momento.</p>
+      </section>
+      <section v-else>
+        <section v-if="cargando">
+          <div class="d-flex justify-content-center align-items-center">
+            <div class="spinner-border text-primary spinner-border-sm"
+              role="status">
+              <span class="visually-hidden">Cargando...</span>
+            </div>
+          </div>
+        </section>
+        <section v-else>
+          <a class="btn btn-success" style="border: 2px solid black;" href="pokemon_nuevo.html">Atrapar pokemon</a>
+          <div class="table-responsive" style="margin-top: 1rem; background-color: rgba(193, 193, 193, 0.8); border-radius: 2rem 2rem 0 0; border: 2px solid #000;">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th scope="col">Id</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Imagen</th>
+                  <th scope="col">Descripcion</th>
+                  <th scope="col">Tipo</th>
+                  <th scope="col">Habilidad</th>
+                  <th scope="col">Debilidad</th>
+                  <th scope="col">Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="" v-for="p in pokemones">
+                  <td scope="row">{{p.id}}</td>
+                  <td>{{p.nombre}}</td>
+                  <td>
+                    <img :src="p.imagen" :alt="p.nombre" width="80" height="80">
+                  </td>
+                  <td>{{p.descripcion}}</td>
+                  <td>{{p.tipo}}</td>
+                  <td>{{p.habilidad}}</td>
+                  <td>{{p.debilidad}}</td>
+                  <td>
+                    <a class="btn btn-primary" :href="'pokemon_editar.html?id='+ p.id + '&nombre=' + p.nombre + '&imagen=' + p.imagen + '&descripcion=' + p.descripcion + '&tipo=' + p.tipo + '&habilidad=' + p.habilidad + '&debilidad=' + p.debilidad">Editar</a>
+                    <button type="button" class="btn btn-danger" v-on:click="eliminar(p.id)">Eliminar</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+
+    </div>
+  </main>
+
+  <footer></footer>
+
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+  </script>
+  
+  <script src="./js/main.js"></script>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="./js/pokemones.js"></script>
+</body>
+
+</html>
