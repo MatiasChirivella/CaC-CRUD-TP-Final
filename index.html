@@ -10,16 +10,39 @@
   <!-- Bootstrap CSS v5.2.1 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <link rel="stylesheet" href="./styles/index.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet"> 
 
 </head>
 
-<body style="background-image: url(https://images3.alphacoders.com/273/273289.jpg);background-position: center; background-size: cover; box-sizing: border-box;">
+<body>
   <header id="header">
 
   </header>
 
   <main>
+    <section style="background-image: url(https://images3.alphacoders.com/273/273289.jpg);background-position: center; background-position: -3rem;background-size: contain; box-sizing: border-box; width: max-width; height:40rem; display: flex; flex-direction: row; justify-content: center; align-items: center;">
+      <section id="nuevoMaestroPokemon" style="display: none;">
+        <h1>Queres ser un Maestro Pokemon?</h1>
+        <form id= "acceso" class="d-flex my-2 my-lg-0">
+          <input class="form-control me-sm-2" style="border: 2px solid black; margin-bottom: 1rem;" type="text" placeholder="Ingrese un usuario.." id="nuevoNombreUsuario">
+          <input class="form-control me-sm-2" style="border: 2px solid black; margin-bottom: 1rem;" type="password" placeholder="Ingrese una contraseña.." id="nuevaClaveUsuario">
+          <button class="btn btn-success my-2 my-sm-0" style="border: 2px solid black;" type="button" href="pokemones.html"  onclick ="usuarioNuevo()">Quiero ser en Maestro Pokemon!</button>
+        </form>
+      </section>
 
+      <section id="maestroPokemon" style="display: block;">
+        <h1>Bienvenido Maestro Pokemon!</h1>
+        <form id= "acceso" class="d-flex my-2 my-lg-0">
+          <input class="form-control me-sm-2" style="border: 2px solid black; margin-bottom: 1rem;" type="text" placeholder="Ingrese su usuario.." id="nombreUsuario">
+          <input class="form-control me-sm-2" style="border: 2px solid black; margin-bottom: 1rem;" type="password" placeholder="Ingrese su contraseña.." id="claveUsuario">
+          <button class="btn btn-success my-2 my-sm-0" style="border: 2px solid black;" type="button" href="pokemones.html"  onclick ="usuarioAcceder()">Acceder</button>
+        </form>
+        <a href="#" onclick="mostrarCrearUsuario()">¿Quieres convertirte en Maestro Pokemon?</a>
+      </section> 
+    </section>
   </main>
 
   <footer></footer>
@@ -32,8 +55,8 @@
     integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
   </script>
   
-  <script src="./js/main.js"></script>
-
+  
+  <script src="./js/usuario_nuevo.js"></script>
 </body>
 
 </html>

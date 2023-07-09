@@ -1,0 +1,174 @@
+* {
+    box-sizing: border-box;
+    font-family: 'VT323', monospace;
+}
+
+#acceso {
+    display: flex;
+    flex-direction: column;
+    width: 15rem;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+a:hover {
+    color: rgba(255, 255, 255, 0.821);
+}
+
+main {
+    background-image: url(data:image/jpeg;base64,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); 
+    background-size: contain; 
+    background-position: center;
+}
+
+#caja-principal {
+    padding: 2rem;
+    background-color: rgb(255, 48, 48);
+    border-radius: 3rem 2rem 0 0;
+    border: 2px solid black;
+    box-shadow: -10px 20px 2px 10px rgb(98, 0, 0);
+}
+
+#encabezado {
+    height: 8rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 3rem 2rem 6rem;
+
+}
+
+#atrapar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#atrapar a{
+    margin: .5rem;
+}
+
+
+
+#titulo {
+    background-image: url(../img/png-transparent-poke-ball-thumbnail.png);
+    background-position: center;
+    background-size: cover;
+    width: 8rem;
+    height: 8rem;
+    padding: 2rem 0;
+    border-radius: 5rem;
+    text-align: center;
+}
+
+#titulo:hover {
+    filter: brightness(150%);
+}
+
+#formulario {
+    height: max-content;
+    display: flex;
+    flex-direction: row;
+    text-align: start;
+}
+
+#tabla table {
+    font-size: 1.1rem;
+    background-color: rgba(255, 255, 255, 0.784);
+    border: 2px solid black;
+}
+
+.botones {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 3rem;
+    padding: .3rem;
+    margin: .5rem;
+    font-size: 1.5rem;
+    text-align: center;
+    border: 1px solid black;
+}
+
+#nuevoMaestroPokemon,
+#maestroPokemon,
+#nuevoMaestroPokemon form,
+#maestroPokemon form {
+    margin: auto;
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 1rem;
+}
+
+#nuevoMaestroPokemon h1,
+#maestroPokemon h1 {
+    font-size: 3rem;
+}
+
+#pokedex {
+    position: sticky;
+    padding: .5rem 1rem;
+    width: max-content;
+}
+
+#consola {
+    width: 100%;
+    height: 40rem;
+    display: flex;
+    flex-direction: row;
+    background-image: url(../img/pokedex.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding: 3rem;
+}
+
+#imagenPokemon {
+    width: 19.5rem;
+    height: 13.3rem;
+    padding: .5rem;
+    position: relative;
+    top: 7.95rem;
+    left: 7.5rem;
+    border-radius: 1rem;
+    border: 3px solid black;
+    text-align: center;
+    align-items: center;
+}
+
+#contenedorFormulario {
+    width: max-content;
+    margin-right: 9.5rem;
+    position: relative;
+    top: 7.4rem ;
+    left: 3.5rem;
+    text-align: end;
+    font-size: 1rem;
+}
+
+.mb-3 label {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+#titulo {
+    background-image: url(../img/png-transparent-poke-ball-thumbnail.png);
+    background-position: center;
+    background-size: cover;
+    width: 8rem;
+    height: 8rem;
+    padding: 2rem 0;
+    border-radius: 5rem;
+    text-align: center;
+}
+
+#titulo:hover {
+    filter: brightness(150%);
+}
+
+#atrapar {
+    align-items: start;
+    margin-left: -4rem;
+}

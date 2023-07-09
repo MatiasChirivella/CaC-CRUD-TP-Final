@@ -58,3 +58,26 @@ function modificar(){
     })
 
 }
+
+let id = document.getElementById("id").value;
+    let n = document.getElementById("nombre").value;
+    let i = document.getElementById("imagen").value;
+    let d = document.getElementById("descripcion").value;
+    let t = document.getElementById("tipo").value;
+    let h = document.getElementById("habilidad").value;
+    let w = document.getElementById("debilidad").value;
+    
+var seccionImagen = document.getElementById("imagenPokemon");
+
+// Crear el elemento img
+var imgElement = document.createElement("img");
+
+// Configurar los atributos de la imagen
+imgElement.src = i;
+imgElement.alt = "Pokemon no encontrado";
+imgElement.width = 200;
+imgElement.height = 200;
+
+
+// Insertar la imagen en el documento
+seccionImagen.appendChild(imgElement);

@@ -36,3 +36,18 @@ function guardar(){
     })
 
 }
+
+const { createApp } = Vue;
+createApp({
+  data() {
+    return {urlImagen: "#"}
+  },
+    // Defino watch:
+    watch: {
+    urlImagen(valor) {
+    this.urlImagen = valor
+    }
+    }
+   
+}).mount("#imagenPokemon");
+

@@ -10,19 +10,24 @@
   <!-- Bootstrap CSS v5.2.1 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <link rel="stylesheet" href="./styles/index.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet"> 
+  <script src="https://kit.fontawesome.com/5e2fa57470.js" crossorigin="anonymous"></script>
+
 
 </head>
 
 <body>
   <header id="header"></header>
 
-  <main style="background-image: url(https://assets.pokemon.com//assets/cms2-es-es/img/misc/virtual-backgrounds/masters/forest.jpg); background-size: cover; background-position: center;">
+  <main>
     <div id="app" class="container">
-      <h1 style="padding: 0.5rem 1rem; background-color: rgba(193, 193, 193, 0.8); display: flex; justify-content: start; width: max-content; border-radius: .3rem;">Pokédex</h1>
-
-      <section v-if="error">
+      <section v-if="error" style="height: 40rem; font-size: 2rem; justify-content: center; text-align: center;padding-top: 10rem;">
         <p>Lo sentimos, los pokemones están descansando en este momento.</p>
       </section>
+
       <section v-else>
         <section v-if="cargando">
           <div class="d-flex justify-content-center align-items-center">
@@ -32,9 +37,30 @@
             </div>
           </div>
         </section>
-        <section v-else>
-          <a class="btn btn-success" style="border: 2px solid black;" href="pokemon_nuevo.html">Atrapar pokemon</a>
-          <div class="table-responsive" style="margin-top: 1rem; background-color: rgba(193, 193, 193, 0.8); border-radius: 2rem 2rem 0 0; border: 2px solid #000;">
+
+        <section v-else id="caja-principal">
+          <section id="encabezado">
+            <section id="atrapar">
+              <h1 id="resultado"><script>
+                var valor = localStorage.getItem("valor");
+                document.getElementById("resultado").textContent = "Bienvenido, " + valor+"!";
+              </script></h1>
+              <a class="btn btn-success" style="border: 2px solid black;" href="pokemon_nuevo.html">Atrapar pokemon</a>
+            </section>
+
+            <a href="index.html">
+              <section id="titulo">
+                <h1>HOME</h1>
+              </section> 
+            </a>   
+
+            <form id= "formulario" class="d-flex my-2 my-lg-0">
+              <input class="form-control me-sm-2" style="border: 2px solid black;" type="text" placeholder="Encuentra a tu pokemon" id="searchInput">
+              <button class="btn btn-success my-2 my-sm-0" style="border: 2px solid black; border-radius: 2rem;" type="submit" onclick="buscarPokemones()"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+          </section>
+
+          <div id="tabla" class="table-responsive">
             <table class="table table-bordered">
               <thead>
                 <tr>
@@ -59,9 +85,9 @@
                   <td>{{p.tipo}}</td>
                   <td>{{p.habilidad}}</td>
                   <td>{{p.debilidad}}</td>
-                  <td>
-                    <a class="btn btn-primary" :href="'pokemon_editar.html?id='+ p.id + '&nombre=' + p.nombre + '&imagen=' + p.imagen + '&descripcion=' + p.descripcion + '&tipo=' + p.tipo + '&habilidad=' + p.habilidad + '&debilidad=' + p.debilidad">Editar</a>
-                    <button type="button" class="btn btn-danger" v-on:click="eliminar(p.id)">Eliminar</button>
+                  <td id="botones">
+                    <a class="botones btn btn-warning" :href="'pokemon_editar.html?id='+ p.id + '&nombre=' + p.nombre + '&imagen=' + p.imagen + '&descripcion=' + p.descripcion + '&tipo=' + p.tipo + '&habilidad=' + p.habilidad + '&debilidad=' + p.debilidad">EDI</a>
+                    <button type="button" class="botones btn btn-danger" v-on:click="eliminar(p.id)">ELI</button>
                   </td>
                 </tr>
               </tbody>
@@ -84,9 +110,10 @@
     integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
   </script>
   
-  <script src="./js/main.js"></script>
+  <!--  <script src="./js/main.js"></script> -->
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <script src="./js/pokemones.js"></script>
+  <script src="./js/usuario_nuevo.js"></script>
 </body>
 
 </html>
